@@ -54,9 +54,13 @@ TB_Sorter.v | testbench for the RTHS design
 Other properties
 ------------
 Category: Sorting Network (SN)
+
 Language: Verilog
+
 Development status: Stable
+
 Additional info: Design done, FPGA proven
+
 License: GPL
 
 
