@@ -1,0 +1,61 @@
+module BitonicNetwork #( parameter NUM = 4 , W = 16)(
+		//INPUT
+		input clk, rst,
+		input direction,
+		input [(NUM*W)-1:0] IN ,
+		
+		//OUTPUT
+		output [(NUM*W)-1:0] OUT
+   );
+	wire [(NUM*W)-1:0] _stage1;
+	wire [(NUM*W)-1:0] _stage2_1, _stage2_2;
+	//wire [(NUM*16)-1:0] _stage5_1, _stage5_2;
+	
+	assign OUT       = _stage2_2;
+	//assign OUT_state = IN_state;
+	
+	genvar a, b, c ,d ,e;
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/// STAGE 1
+   generate
+   for(a = 0; a < NUM/2; a = a+1)
+      begin: Stage1	
+			BitonicPosStage1 #(W) Pos_Bitonic(
+				.clk(clk), .rst(rst), 
+				.direction(direction),
+				.IN  (IN     [2*W*a +(2*W-1):2*W*a]), 
+				.OUT (_stage1[2*W*a +(2*W-1):2*W*a])
+			);
+      end
+   endgenerate
+	
+	/// reg bitween two stage
+	//REG #(NUM*16) REG_STAGE_1( .clk(clk), .rst(rst), .IN(_stage1), .OUT(_reg1));
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/// STAGE 2
+   generate
+   for(b = 0; b < NUM/4; b = b+1)
+      begin: Stage2
+			BitonicPreStage #(4, W) Pre_Bitonic (
+				.clk(clk), .rst(rst), 
+				.direction(direction),
+				.IN  (_stage1  [4*W*b +(4*W-1):4*W*b]), 
+				.OUT (_stage2_1[4*W*b +(4*W-1):4*W*b])
+			);
+		
+			BitonicPosStage2 #(W) Pos_Bitonic(
+				.clk(clk), .rst(rst), 
+				.direction(direction),
+				.IN  (_stage2_1[4*W*b +(4*W-1):4*W*b]), 
+				.OUT (_stage2_2[4*W*b +(4*W-1):4*W*b])
+			);
+      end
+   endgenerate
+	/// reg bitween two stage
+	//REG #(NUM*16) REG_STAGE_2( .clk(clk), .rst(rst), .IN(_stage2_2), .OUT(_reg2));
+
+	
+endmodule
