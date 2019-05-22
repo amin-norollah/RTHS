@@ -1,25 +1,19 @@
+///////////////////////////////////////////////////////////
+//
+// Author:          Amin Norollah (an.norollah@gmail.com)	
+// Modified Date:   ‎Today, ‎May ‎22, ‎2019, ‏‎11:16:55 AM
+// Design Name:     TB_Sorter
+// Project Name:    RTHS
+// Target Device:   Virtex Family FPGA
+// Tool versions:   Vivado 2018.2
+// Description:     Test bench for simple RTHS
+// 
+// Licence:         These project have been published for 
+//                  academic use only under GPLv3 License.
+//                  Copyright  2018
+//                  All Rights Reserved
+///////////////////////////////////////////////////////////
 `timescale 1ns / 1ps
-
-////////////////////////////////////////////////////////////////////////////////
-// Company:
-// Engineer:	
-//
-// Create Date:   11:45:08 05/20/2018
-// Design Name:   Sorter
-// Project Name:  newSort
-// Target Device:  
-// Tool versions:  
-// Description: 
-//
-// Verilog Test Fixture created by ISE for module: Sorter
-//
-// Dependencies:
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-////////////////////////////////////////////////////////////////////////////////
 
 `define PACK_ARRAY(PK_WIDTH,PK_LEN,PK_SRC,PK_DEST)    genvar pk_idx;   generate for (pk_idx=0; pk_idx<(PK_LEN); pk_idx=pk_idx+1) begin;         assign PK_DEST[((PK_WIDTH)*pk_idx+((PK_WIDTH)-1)):((PK_WIDTH)*pk_idx)] = PK_SRC[pk_idx][((PK_WIDTH)-1):0];     end; endgenerate
 `define UNPACK_ARRAY(PK_WIDTH,PK_LEN,PK_DEST,PK_SRC)  genvar unpk_idx; generate for (unpk_idx=0; unpk_idx<(PK_LEN); unpk_idx=unpk_idx+1) begin; assign PK_DEST[unpk_idx][((PK_WIDTH)-1):0] = PK_SRC[((PK_WIDTH)*unpk_idx+(PK_WIDTH-1)):((PK_WIDTH)*unpk_idx)]; end; endgenerate
