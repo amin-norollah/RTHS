@@ -1,3 +1,21 @@
+///////////////////////////////////////////////////////////
+//
+// Author:          Amin Norollah (an.norollah@gmail.com)
+// Modified Date:   ‎Saturday, ‎August ‎11, ‎2018, ‏‎3:51:56 PM
+// Design Name:     SorterMain
+// Project Name:    RTHS
+// Target Device:   Virtex Family FPGA
+// Tool versions:   Vivado 2018.2
+// Description:     Main module of RTHS design, you can find description about this module from paper below.
+//                  ("RTHS: A Low-Cost High-Performance Real-Time Hardware Sorter, Using 
+//                  a Multidimensional Sorting Algorithm", doi: 10.1109/TVLSI.2019.2912554)
+// 
+// Licence:         These project have been published for 
+//                  academic use only under GPLv3 License.
+//                  Copyright  2018
+//                  All Rights Reserved
+///////////////////////////////////////////////////////////
+
 module SorterMain #( parameter NUM = 4 , W = 64)(
 		//INPUT
 		input clk,

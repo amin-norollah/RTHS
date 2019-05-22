@@ -1,26 +1,20 @@
+///////////////////////////////////////////////////////////
+//
+// Author:          Amin Norollah (an.norollah@gmail.com)	
+// Modified Date:   Monday, ‎July ‎2, ‎2018, ‏‎3:33:29 PM
+// Design Name:     TB_BitonicNetwork
+// Project Name:    RTHS
+// Target Device:   Virtex Family FPGA
+// Tool versions:   Vivado 2018.2
+// Description:     Test bench for Bitonic NEtwork
+// 
+// Licence:         These project have been published for 
+//                  academic use only under GPLv3 License.
+//                  Copyright  2018
+//                  All Rights Reserved
+///////////////////////////////////////////////////////////
+
 `timescale 1ns / 1ps
-
-////////////////////////////////////////////////////////////////////////////////
-// Company:
-// Engineer:	
-//
-// Create Date:   12:31:08 05/18/2018
-// Design Name:   BitonicNetwork
-// Project Name:  newSort
-// Target Device:  
-// Tool versions:  
-// Description: 
-//
-// Verilog Test Fixture created by ISE for module: BitonicNetwork
-//
-// Dependencies:
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-////////////////////////////////////////////////////////////////////////////////
-
 module TB_BitonicNetwork #( parameter NUM = 16, W = 32);
 
 	// Inputs

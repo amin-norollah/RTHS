@@ -1,3 +1,20 @@
+///////////////////////////////////////////////////////////
+//
+// Author:          Amin Norollah (an.norollah@gmail.com)	
+// Modified Date:   Wednesday, ‎July ‎4, ‎2018, ‏‎10:42:18 AM
+// Design Name:     BitonicPreStage
+// Project Name:    RTHS
+// Target Device:   Virtex Family FPGA
+// Tool versions:   Vivado 2018.2
+// Description:     We have divided Bitoic network into 2 parts, prestage and posstage.
+//                  prestage contain first comparator that are not repeated on a regular form.
+// 
+// Licence:         These project have been published for 
+//                  academic use only under GPLv3 License.
+//                  Copyright  2018
+//                  All Rights Reserved
+///////////////////////////////////////////////////////////
+
 module BitonicPreStage #( parameter NUM = 16, W = 16)(
 		//INPUT
 		input clk, rst,

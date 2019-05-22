@@ -1,3 +1,19 @@
+///////////////////////////////////////////////////////////
+//
+// Author:          Amin Norollah (an.norollah@gmail.com)	
+// Modified Date:   ‎Wednesday, ‎July ‎4, ‎2018, ‏‎10:20:12 AM
+// Design Name:     BitonicPosStage2
+// Project Name:    RTHS
+// Target Device:   Virtex Family FPGA
+// Tool versions:   Vivado 2018.2
+// Description:     Explaind in "BitonicPosStage1" module.
+// 
+// Licence:         These project have been published for 
+//                  academic use only under GPLv3 License.
+//                  Copyright  2018
+//                  All Rights Reserved
+///////////////////////////////////////////////////////////
+
 module BitonicPosStage2 #( parameter W = 16)(
 		//INPUT
 		input clk, rst,
