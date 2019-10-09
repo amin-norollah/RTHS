@@ -1,7 +1,9 @@
 RTHS - Real Time Hardware Sorter
 =============================
 
-![THE MULTIDIMENSIONAL SORTING ALGORITHM](https://github.com/amin-norollah/RTHS/blob/master/RTHS-logo.png)
+<p align="center">
+  <img src="https://github.com/amin-norollah/RTHS/blob/master/RTHS-logo.png" alt="THE MULTIDIMENSIONAL SORTING ALGORITHM">
+</p>
 
 Welcome to the RTHS, hardware description of Real Time Hardware Sorter.
 
