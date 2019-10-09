@@ -7,6 +7,8 @@
 // Target Device:   Virtex Family FPGA
 // Tool versions:   Vivado 2018.2
 // Description:     Bitonic Sorting Network (BSN).
+//                  This module is scalable and suitable for
+//                  expansion.
 // 
 // Licence:         These project have been published for 
 //                  academic use only under GPLv3 License.
@@ -16,22 +18,31 @@
 
 module BitonicNetwork #( parameter NUM = 4 , W = 16)(
 		//INPUT
-		input clk, rst,
+		//input clk, rst,
 		input direction,
-		input [(NUM*W)-1:0] IN ,
+		input [(NUM*W)-1:0] IN ,  //"NUM" input records with "W" data width.
 		
 		//OUTPUT
 		output [(NUM*W)-1:0] OUT
    );
 	wire [(NUM*W)-1:0] _stage1;
 	wire [(NUM*W)-1:0] _stage2_1, _stage2_2;
-	//wire [(NUM*16)-1:0] _stage5_1, _stage5_2;
 	
 	assign OUT       = _stage2_2;
-	//assign OUT_state = IN_state;
 	
 	genvar a, b, c ,d ,e;
 
+// Simple bitonic network with 4 input records:
+//
+// IN[0] -----*----------------*----> OUT[0]
+//            |                |
+// IN[1] -----*------------*---|----> OUT[1]
+//                         |   |
+// IN[2] -----*------------*---|----> OUT[2]
+//            |                |
+// IN[3] -----*----------------*----> OUT[3]
+//          stage 1        stage 2
+//
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 /// STAGE 1
@@ -39,7 +50,7 @@ module BitonicNetwork #( parameter NUM = 4 , W = 16)(
    for(a = 0; a < NUM/2; a = a+1)
       begin: Stage1	
 			BitonicPosStage1 #(W) Pos_Bitonic(
-				.clk(clk), .rst(rst), 
+				//.clk(clk), .rst(rst), 
 				.direction(direction),
 				.IN  (IN     [2*W*a +(2*W-1):2*W*a]), 
 				.OUT (_stage1[2*W*a +(2*W-1):2*W*a])
@@ -56,14 +67,14 @@ module BitonicNetwork #( parameter NUM = 4 , W = 16)(
    for(b = 0; b < NUM/4; b = b+1)
       begin: Stage2
 			BitonicPreStage #(4, W) Pre_Bitonic (
-				.clk(clk), .rst(rst), 
+				//.clk(clk), .rst(rst), 
 				.direction(direction),
 				.IN  (_stage1  [4*W*b +(4*W-1):4*W*b]), 
 				.OUT (_stage2_1[4*W*b +(4*W-1):4*W*b])
 			);
 		
 			BitonicPosStage2 #(W) Pos_Bitonic(
-				.clk(clk), .rst(rst), 
+				//.clk(clk), .rst(rst), 
 				.direction(direction),
 				.IN  (_stage2_1[4*W*b +(4*W-1):4*W*b]), 
 				.OUT (_stage2_2[4*W*b +(4*W-1):4*W*b])

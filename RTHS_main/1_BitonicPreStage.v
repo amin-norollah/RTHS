@@ -17,7 +17,7 @@
 
 module BitonicPreStage #( parameter NUM = 16, W = 16)(
 		//INPUT
-		input clk, rst,
+		//input clk, rst,
 		input  direction,
 		input  [(NUM*W)-1 :0] IN ,
 		
@@ -30,7 +30,7 @@ module BitonicPreStage #( parameter NUM = 16, W = 16)(
    for(i = 0; i < NUM/2; i = i+1)
       begin: PreStage_
 			Comparator #(W) COM_ (
-				.clk(clk), .rst(rst), 
+				//.clk(clk), .rst(rst), 
 				.direction(direction),
 				.IN1 (IN [W*i +(W-1)  : W*i]),
 				.IN2 (IN [(NUM*W -1)-W*i : (NUM*W -1)-W*i -(W-1)]),

@@ -15,7 +15,7 @@
 ///////////////////////////////////////////////////////////
 
 `timescale 1ns / 1ps
-module TB_BitonicNetwork #( parameter NUM = 16, W = 32);
+module TB_BitonicNetwork #( parameter NUM = 16, W = 16);
 
 	// Inputs
 	reg [NUM*W-1:0] IN ;
