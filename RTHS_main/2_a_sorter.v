@@ -1,4 +1,10 @@
 ///////////////////////////////////////////////////////////
+//     ____  ________  _______
+//    / __ \/_  __/ / / / ___/
+//   / /_/ / / / / /_/ /\__ \ 
+//  / _, _/ / / / __  /___/ / 
+// /_/ |_| /_/ /_/ /_//____/  
+//
 //
 // Author:          Amin Norollah (an.norollah@gmail.com)
 // Modified Date:   ‎Saturday, ‎August ‎11, ‎2018, ‏‎3:51:56 PM
@@ -9,9 +15,11 @@
 // Description:     Main module of RTHS design, you can find description about this module from paper below.
 //                  ("RTHS: A Low-Cost High-Performance Real-Time Hardware Sorter, Using 
 //                  a Multidimensional Sorting Algorithm", doi: 10.1109/TVLSI.2019.2912554)
+//                  In this module, one dimentional input array is transfered to 2D matrix form and send to
+//                  the parallel bitonic sorting networks for sorting. After each phase of sorting the outputs
+//                  of the parallel units have to switch from column to row or vice versa.
 // 
-// Licence:         These project have been published for 
-//                  academic use only under GPLv3 License.
+// Licence:         These project have been published for academic use only under GPLv3 License.
 //                  Copyright  2018
 //                  All Rights Reserved
 ///////////////////////////////////////////////////////////
@@ -26,18 +34,16 @@ module SorterMain #( parameter NUM = 4 , W = 64)(
 		output [(NUM*NUM*W)-1:0] keyOut,
 		output ready
    );
-	reg  [W-1:0] key_reg [NUM*NUM-1:0];
+	reg  [W-1:0] key_reg [NUM*NUM-1:0];   //temporary key registers
 	
-	wire [W-1:0] switch_In [NUM*NUM-1:0];
-	wire [W-1:0] switch_Out [NUM*NUM-1:0];
-	wire [3:0] direction;
+	wire [W-1:0] switch_In [NUM*NUM-1:0]; //using for the input of the switch module
+	wire [W-1:0] switch_Out [NUM*NUM-1:0];//using for the output of the switch module
+	wire [3:0] direction;  //set by control unit to obtain the order mode of sorting
 	
 	integer o, p;
 	initial
 		for(p=0; p<NUM*NUM; p = p+1)
-			key_reg[p] <= 0;
-	
-	//assign keyOut = switch_Out;
+			key_reg[p] <= 0;      // initialization
 	
 	////////////////////////////
     /// convert input and output
@@ -47,7 +53,7 @@ module SorterMain #( parameter NUM = 4 , W = 64)(
     genvar vnf;
     generate 
         for (vnf=0; vnf<NUM*NUM; vnf=vnf+1) begin : convert_signals
-            assign _keyIn[vnf][W-1:0]     = keyIn[W*vnf+(W-1):W*vnf]; //unpacked
+            assign _keyIn[vnf][W-1:0]     = keyIn[W*vnf+(W-1):W*vnf];  //unpacked
             assign keyOut[W*vnf+(W-1):W*vnf] = switch_Out[vnf][W-1:0]; //packed
         end
     endgenerate
@@ -60,7 +66,7 @@ module SorterMain #( parameter NUM = 4 , W = 64)(
 /******************************/
 	genvar q;
 	generate
-   for(q = 0; q < NUM; q = q+1)
+   for(q = 0; q < NUM; q = q+1)   //using "Num" bitonic sorting network in parallel for sorting the 2D matrix
       begin: BN
 			BitonicNetwork #(NUM, W) BN (
 				.clk      (clk),
@@ -75,7 +81,7 @@ module SorterMain #( parameter NUM = 4 , W = 64)(
 	
 	always @(posedge clk) begin
 		for(o=0; o<NUM*NUM; o = o+1)
-			key_reg[o] <= (start)? _keyIn[o] : switch_Out[o];
+			key_reg[o] <= (start)? _keyIn[o] : switch_Out[o];  // input of the temporary key registers
 	end
 	
 /******************************/
