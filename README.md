@@ -41,15 +41,15 @@ Files | Description
 1_Comparator.v | comparator
 1_BitonicNetwork.v | 8-input records BSN
 1_BitonicPreStage.v | prestage of BSN
-1_BitonicPosStage1.v | posstage od BSN, level 1
-1_BitonicPosStage2.v | posstage od BSN, level 2
-1_BitonicPosStage3.v | posstage od BSN, level 3
+1_BitonicPosStage1.v | posstage of BSN, level 1
+1_BitonicPosStage2.v | posstage of BSN, level 2
+1_BitonicPosStage3.v | posstage of BSN, level 3
 2_a_sorter.v | the Real-Time Hardware Sorter (RTHS) design for sorting 4 x 4 matrix records.
 2_b_switch.v | the implicit switch design
 2_c_Controller.v | the control unit
 TB_BitonicNetwork.v | testbench for BSN
 TB_Sorter.v | testbench for the RTHS design
-
+Input.hex | 16 test records with 16 data width
 
 Other properties
 ------------
@@ -58,6 +58,8 @@ Category: Sorting Network (SN)
 Language: Verilog
 
 Development status: Stable
+
+Manual: Included
 
 Additional info: Design done, FPGA proven
 
