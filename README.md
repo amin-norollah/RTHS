@@ -10,16 +10,16 @@ Welcome to the RTHS, hardware description of Real Time Hardware Sorter.
 
 Description
 ------------
-We proposed a novel multi-dimensional sorting algorithm and its corresponding 
+We proposed a novel multi-dimensional sorting algorithm and its related FPGA-based
 architecture to greatly reduce the required resources, increase memory efficiency and
-have little negative impact on execution-time in the FPGA chip, while the number of input records increase.
+have little negative impact on execution-time in the FPGA chip, while the number of input records increased.
 These features make our solution a worthy replacement to other sorting techniques.
 The proposed method can also be used for two other applications:
 1) To implement Min/Max queues to find minimum and maximum records quickly,
-2) to acquire the largest/smallest records in the big data.
-In the latter case, we have access to the largest and the smallest records at any time throughout the sorting process.
+2) to find the largest/smallest records in the stream Processing of the big data.
+In the latter case, we have access to the largest and the smallest records at any time through the sorting process.
 
-The project is a simple version of the RTHS design, that can sort 4 x 4 matrix records. These project have been published for academic use only.
+The hardware description of sorter that is provided in this project is a simple version of the RTHS design, that can sort 16 input records (4 x 4 matrix records). These project have been published for academic use only.
 
 **If you use RTHS design in your research, we would appreciate the following citation in any publications to which it has contributed:**
 
