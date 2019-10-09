@@ -2,7 +2,7 @@ RTHS - Real Time Hardware Sorter
 =============================
 
 <p align="center">
-  <img src="https://github.com/amin-norollah/RTHS/blob/master/RTHS-logo.png" alt="THE MULTIDIMENSIONAL SORTING ALGORITHM">
+  <img src="https://github.com/amin-norollah/RTHS/blob/master/RTHS-logo.png" alt="realtime hardware sorter">
 </p>
 
 Welcome to the RTHS, hardware description of Real Time Hardware Sorter.
@@ -26,7 +26,9 @@ The project is a simple version of the RTHS design, that can sort 4 x 4 matrix r
 A. Norollah, D. Derafshi, H. Beitollahi and M. Fazeli, "RTHS: A Low-Cost High-Performance Real-Time Hardware Sorter, Using a Multidimensional Sorting Algorithm," in IEEE Transactions on Very Large Scale Integration (VLSI) Systems.
 doi: 10.1109/TVLSI.2019.2912554
 
-![alt text](https://github.com/amin-norollah/RTHS/blob/master/Multi-Dimensional-Sorting-Algorithm.png)
+<p align="center">
+  <img src="https://github.com/amin-norollah/RTHS/blob/master/Multi-Dimensional-Sorting-Algorithm.png" alt="THE MULTIDIMENSIONAL SORTING ALGORITHM">
+</p>
 
 Application
 ------------
