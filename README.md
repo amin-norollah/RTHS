@@ -38,10 +38,6 @@ The width of the data and the number of records received can change by tow param
 (According to resource available on the target FGPA chip). You can find parameters in the top module of design.
 Note that changing the parameter "N" causes a change in the structure of the Bitonic Sorting Network(BSN). Therefore, BSN must also be upgraded.
 
-<p align="center">
-  <img src="https://github.com/amin-norollah/RTHS/blob/master/Multi-Dimensional-Sorting-Algorithm.gif" alt="how the realtime hardware sorter works">
-</p>
-
 The sorting process is performed similar to the multi-dimensional sorting algorithm described in our paper and proposed hardware is provided to implement it.
 Some of the main modules are listed in the following table:
 
@@ -60,6 +56,10 @@ Files | Description
 TB_BitonicNetwork.v | testbench for BSN
 TB_Sorter.v | testbench for the RTHS design
 Input.hex | 16 test records with 16 data width
+
+<p align="center">
+  <img src="https://github.com/amin-norollah/RTHS/blob/master/Multi-Dimensional-Sorting-Algorithm.gif" alt="how the realtime hardware sorter works">
+</p>
 
 Other properties
 ------------
