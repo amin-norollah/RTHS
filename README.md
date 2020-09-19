@@ -24,11 +24,13 @@ The hardware description of sorter that is provided in this project is a simple 
 **If you use RTHS design in your research, we would appreciate the following citation in any publications to which it has contributed:**
 
 A. Norollah, D. Derafshi, H. Beitollahi and M. Fazeli, "RTHS: A Low-Cost High-Performance Real-Time Hardware Sorter, Using a Multidimensional Sorting Algorithm," in IEEE Transactions on Very Large Scale Integration (VLSI) Systems.
-doi: 10.1109/TVLSI.2019.2912554
+doi: [10.1109/TVLSI.2019.2912554](https://doi.org/10.1109/TVLSI.2019.2912554)
 
 <p align="center">
   <img src="https://github.com/amin-norollah/RTHS/blob/master/Multi-Dimensional-Sorting-Algorithm.png" alt="THE MULTIDIMENSIONAL SORTING ALGORITHM">
 </p>
+
+ >Get in touch with me by [a.norollah.official@gmail.com](mailto:a.norollah.official@gmail.com)
 
 Application
 ------------
