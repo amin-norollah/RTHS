@@ -10,16 +10,14 @@ Welcome to the RTHS, hardware description of Real Time Hardware Sorter.
 
 Description
 ------------
-We proposed a novel multi-dimensional sorting algorithm and its related FPGA-based
-architecture to greatly reduce the required resources, increase memory efficiency and
-have little negative impact on execution-time in the FPGA chip, while the number of input records increased.
-These features make our solution a worthy replacement to other sorting techniques.
-The proposed method can also be used for two other applications:
-1) To implement Min/Max queues to find minimum and maximum records quickly,
-2) to find the largest/smallest records in the stream Processing of the big data.
-In the latter case, we have access to the largest and the smallest records at any time through the sorting process.
 
-The hardware description of sorter that is provided in this project is a simple version of the RTHS design, that can sort 16 input records (4 x 4 matrix records). These project have been published for academic use only.
+We have developed a groundbreaking multi-dimensional sorting algorithm and accompanying FPGA-based architecture that significantly reduces the required resources and increases memory efficiency. This method has minimal negative impact on execution time in the FPGA chip, even as the number of input records increases. As such, our solution presents a viable alternative to other sorting techniques.
+
+In addition to its primary use case, our proposed method can also be applied in two other areas. Firstly, it can be utilized to implement Min/Max queues, allowing for the quick identification of minimum and maximum records. Secondly, it can be used to find the largest and smallest records in big data stream processing. Through the sorting process, our method provides continuous access to the largest and smallest records at any given time.
+
+The RTHS hardware sorter utilizes a multidimensional sorting algorithm that combines parallel and pipeline processing to achieve optimal performance and low execution time. To begin the sorting process, the input records are grouped based on their values in different dimensions. These groups are then sorted in parallel, and their results are merged to produce the final sorted output. Furthermore, the RTHS design incorporates several optimizations to enhance performance, such as using hardware-friendly data structures and implementing a dynamic allocation scheme for intermediate storage. These optimizations result in a highly efficient and cost-effective hardware sorter that is ideal for real-time applications.
+
+This project provides a simplified hardware description of the sorter, based on the RTHS design. It is capable of sorting up to 16 input records, organized in a 4 x 4 matrix. **Please note that this project is intended for academic use only.**
 
 **If you use RTHS design in your research, we would appreciate the following citation in any publications to which it has contributed:**
 
@@ -34,12 +32,11 @@ doi: [10.1109/TVLSI.2019.2912554](https://doi.org/10.1109/TVLSI.2019.2912554)
 
 Application
 ------------
-The width of the data and the number of records received can change by tow parameters. "N" and "W" parameters can be change between 16 ~ 256 and 16 ~ 128 bits, respectively 
-(According to resource available on the target FGPA chip). You can find parameters in the top module of design.
-Note that changing the parameter "N" causes a change in the structure of the Bitonic Sorting Network(BSN). Therefore, BSN must also be upgraded.
+The parameters that determine the width of the data and the number of records can be adjusted using the "N" and "W" parameters, which can range from 16 to 256 and 16 to 128 bits, respectively. These values can be modified based on the resources available on the target FPGA chip, and can be found in the top module of the design.
 
-The sorting process is performed similar to the multi-dimensional sorting algorithm described in our paper and proposed hardware is provided to implement it.
-Some of the main modules are listed in the following table:
+However, it should be noted that changing the "N" parameter will alter the structure of the Bitonic Sorting Network (BSN), necessitating an upgrade to this component as well.
+
+The sorting process employed by this hardware is similar to the multidimensional sorting algorithm described in our paper. We have provided the necessary hardware modules to implement this algorithm, some of which are listed in the table below:
 
 Files | Description
 --- | ---
